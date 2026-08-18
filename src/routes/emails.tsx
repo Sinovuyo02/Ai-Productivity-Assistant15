@@ -51,7 +51,7 @@ const purposes = [
 
 function Emails() {
   const { state, update } = useAppState();
-  const [purpose, setPurpose] = useState(purposes[0]);
+  const [purpose, setPurpose] = useState<string>("Job application email");
   const [tone, setTone] = useState("Warm and professional");
   const [length, setLength] = useState("Short (under 150 words)");
   const [recipient, setRecipient] = useState("");
