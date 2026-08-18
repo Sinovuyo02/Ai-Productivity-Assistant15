@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as EmailsRouteImport } from './routes/emails'
 import { Route as InterviewsRouteImport } from './routes/interviews'
+import { Route as PlannerRouteImport } from './routes/planner'
+import { Route as ResearchRouteImport } from './routes/research'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +37,16 @@ const InterviewsRoute = InterviewsRouteImport.update({
   path: '/interviews',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlannerRoute = PlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchRoute = ResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -46,6 +58,8 @@ export interface FileRoutesByFullPath {
   '/app': typeof AppRoute
   '/emails': typeof EmailsRoute
   '/interviews': typeof InterviewsRoute
+  '/planner': typeof PlannerRoute
+  '/research': typeof ResearchRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +67,8 @@ export interface FileRoutesByTo {
   '/app': typeof AppRoute
   '/emails': typeof EmailsRoute
   '/interviews': typeof InterviewsRoute
+  '/planner': typeof PlannerRoute
+  '/research': typeof ResearchRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesById {
@@ -61,14 +77,38 @@ export interface FileRoutesById {
   '/app': typeof AppRoute
   '/emails': typeof EmailsRoute
   '/interviews': typeof InterviewsRoute
+  '/planner': typeof PlannerRoute
+  '/research': typeof ResearchRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/emails' | '/interviews' | '/api/chat'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/emails'
+    | '/interviews'
+    | '/planner'
+    | '/research'
+    | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/app' | '/emails' | '/interviews' | '/api/chat'
-  id: '__root__' | '/' | '/app' | '/emails' | '/interviews' | '/api/chat'
+  to:
+    | '/'
+    | '/app'
+    | '/emails'
+    | '/interviews'
+    | '/planner'
+    | '/research'
+    | '/api/chat'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/emails'
+    | '/interviews'
+    | '/planner'
+    | '/research'
+    | '/api/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +116,8 @@ export interface RootRouteChildren {
   AppRoute: typeof AppRoute
   EmailsRoute: typeof EmailsRoute
   InterviewsRoute: typeof InterviewsRoute
+  PlannerRoute: typeof PlannerRoute
+  ResearchRoute: typeof ResearchRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
@@ -109,6 +151,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InterviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/planner': {
+      id: '/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof PlannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research': {
+      id: '/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof ResearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -124,6 +180,8 @@ const rootRouteChildren: RootRouteChildren = {
   AppRoute: AppRoute,
   EmailsRoute: EmailsRoute,
   InterviewsRoute: InterviewsRoute,
+  PlannerRoute: PlannerRoute,
+  ResearchRoute: ResearchRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
