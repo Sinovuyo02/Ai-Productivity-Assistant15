@@ -15,6 +15,7 @@ import { Route as CoachRouteImport } from './routes/coach'
 import { Route as EmailsRouteImport } from './routes/emails'
 import { Route as InterviewsRouteImport } from './routes/interviews'
 import { Route as PlannerRouteImport } from './routes/planner'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as ResponsibleAiRouteImport } from './routes/responsible-ai'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -49,6 +50,11 @@ const PlannerRoute = PlannerRouteImport.update({
   path: '/planner',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResearchRoute = ResearchRouteImport.update({
   id: '/research',
   path: '/research',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/emails': typeof EmailsRoute
   '/interviews': typeof InterviewsRoute
   '/planner': typeof PlannerRoute
+  '/portfolio': typeof PortfolioRoute
   '/research': typeof ResearchRoute
   '/responsible-ai': typeof ResponsibleAiRoute
   '/api/chat': typeof ApiChatRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/emails': typeof EmailsRoute
   '/interviews': typeof InterviewsRoute
   '/planner': typeof PlannerRoute
+  '/portfolio': typeof PortfolioRoute
   '/research': typeof ResearchRoute
   '/responsible-ai': typeof ResponsibleAiRoute
   '/api/chat': typeof ApiChatRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/emails': typeof EmailsRoute
   '/interviews': typeof InterviewsRoute
   '/planner': typeof PlannerRoute
+  '/portfolio': typeof PortfolioRoute
   '/research': typeof ResearchRoute
   '/responsible-ai': typeof ResponsibleAiRoute
   '/api/chat': typeof ApiChatRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/emails'
     | '/interviews'
     | '/planner'
+    | '/portfolio'
     | '/research'
     | '/responsible-ai'
     | '/api/chat'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/emails'
     | '/interviews'
     | '/planner'
+    | '/portfolio'
     | '/research'
     | '/responsible-ai'
     | '/api/chat'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/emails'
     | '/interviews'
     | '/planner'
+    | '/portfolio'
     | '/research'
     | '/responsible-ai'
     | '/api/chat'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   EmailsRoute: typeof EmailsRoute
   InterviewsRoute: typeof InterviewsRoute
   PlannerRoute: typeof PlannerRoute
+  PortfolioRoute: typeof PortfolioRoute
   ResearchRoute: typeof ResearchRoute
   ResponsibleAiRoute: typeof ResponsibleAiRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlannerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/research': {
       id: '/research'
       path: '/research'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   EmailsRoute: EmailsRoute,
   InterviewsRoute: InterviewsRoute,
   PlannerRoute: PlannerRoute,
+  PortfolioRoute: PortfolioRoute,
   ResearchRoute: ResearchRoute,
   ResponsibleAiRoute: ResponsibleAiRoute,
   ApiChatRoute: ApiChatRoute,
