@@ -175,9 +175,14 @@ function Landing() {
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-8 text-sm text-muted-foreground">
           <p>HireBoost — AI job-search productivity.</p>
-          <Link to="/responsible-ai" className="hover:text-foreground">
-            Responsible AI &amp; your data
-          </Link>
+          <div className="flex flex-wrap gap-4">
+            <Link to="/portfolio" className="hover:text-foreground">
+              Sinovuyo Mqikela portfolio
+            </Link>
+            <Link to="/responsible-ai" className="hover:text-foreground">
+              Responsible AI &amp; your data
+            </Link>
+          </div>
         </div>
       </footer>
     </div>
