@@ -63,11 +63,22 @@
 
 @theme inline {
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --color-signal: var(--signal);
   --color-signal-foreground: var(--signal-foreground);
   --color-surface: var(--surface);
   --color-surface-foreground: var(--surface-foreground);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-cream: var(--cream);
+  --color-cream-warm: var(--cream-warm);
+  --color-cream-dark: var(--cream-dark);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-light: var(--charcoal-light);
+  --color-charcoal-muted: var(--charcoal-muted);
 }
 
 :root {
