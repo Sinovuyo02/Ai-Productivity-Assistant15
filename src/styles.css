@@ -184,3 +184,9 @@
   color: transparent;
 }
 
+@utility text-gradient-gold {
+  background-image: var(--gradient-gold);
+  background-clip: text;
+  color: transparent;
+}
+
